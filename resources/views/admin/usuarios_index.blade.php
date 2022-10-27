@@ -49,36 +49,24 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form method="POST" action="#">
+                        <form method="POST" action="{{route('usuario.store')}}">
                             @csrf
                             <div class="modal-body">
                                 @csrf
+                                <h6 class="sectionTitle">Informações Gerais</h6>
                                 <div class="row justify-content-center mt-2">
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-4">
                                         <label for="name">Nome:</label>
-                                        <input class="form-control @error('name') is-invalid @enderror" id="name" type="text" name="name" value="{{ old('name') }}" required autocomplete="name"
+                                        <input class="form-control @error('nome') is-invalid @enderror" id="nome" type="text" name="nome" value="{{ old('nome') }}" required autocomplete="nome"
                                                autofocus>
-                                        @error('name')
+                                        @error('nome')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                         @enderror
                                     </div>
 
-                                    <div class="col-sm-5">
-                                        <label for="email">E-mail:</label>
-                                        <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email"
-                                               autofocus>
-                                        @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="row justify-content-center mt-2">
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-4">
                                         <label for="cpf">CPF:</label>
                                         <input class="form-control @error('cpf') is-invalid @enderror" id="cpf" type="text" name="cpf" value="{{ old('cpf') }}" required autocomplete="cpf"
                                                autofocus>
@@ -88,8 +76,7 @@
                                     </span>
                                         @enderror
                                     </div>
-
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-4">
                                         <label for="tipo">Tipo do Usuário:</label>
                                         <select class="form-control" name="tipo">
                                             <option value="1">
@@ -105,33 +92,87 @@
                                     </div>
                                 </div>
 
-                                <input id="password" type="hidden" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"
-                                       value="password">
+                                <h6 class="sectionTitle">Contato</h6>
 
                                 <div class="row justify-content-center mt-2">
-                                    <div class="col-sm-5">
-                                        <label for="instituicao">{{ __('Instituição') }}</label>
-                                        <select class="form-control" id="instituicao_create" name="instituicao" onchange="unidades('_create')">
-                                            <option selected disabled style="font-weight: bolder">
-                                                Selecione uma Instituição
-                                            </option>
-
-                                        </select>
-                                        @error('instituicao')
+                                    <div class="col-sm-6">
+                                        <label for="email">E-mail:</label>
+                                        <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email"
+                                               autofocus>
+                                        @error('email')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                         @enderror
                                     </div>
-                                    <div class="col-sm-5">
-                                        <label for="unidade">{{ __('Unidade') }}</label>
-                                        <select class="form-control" id="unidade_create" name="unidade">
-                                            <option selected disabled>
-                                                Selecione uma Unidade
-                                            </option>
-                                        </select>
+
+                                    <div class="col-sm-6">
+                                        <label for="telefone">Telefone:</label>
+                                        <input class="form-control @error('telefone') is-invalid @enderror" id="telefone" type="text" name="telefone" value="{{ old('telefone') }}" required
+                                               autocomplete="telefone"
+                                               autofocus>
+                                        @error('telefone')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
                                     </div>
                                 </div>
+
+                                <h6 class="sectionTitle">Endereço</h6>
+
+                                <div class="row justify-content-center mt-2">
+                                    <div class="col-sm-6">
+                                        <label for="cep">CEP:</label>
+                                        <input class="form-control @error('cep') is-invalid @enderror" id="cep" type="number" name="cep" value="{{ old('cep') }}" required autocomplete="cep"
+                                               autofocus>
+                                        @error('cep')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <label for="bairro">Bairro:</label>
+                                        <input class="form-control @error('bairro') is-invalid @enderror" id="bairro" type="text" name="bairro" value="{{ old('bairro') }}" required
+                                               autocomplete="bairro"
+                                               autofocus>
+                                        @error('bairro')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center mt-2">
+                                    <div class="col-sm-6">
+                                        <label for="rua">Rua:</label>
+                                        <input class="form-control @error('rua') is-invalid @enderror" id="rua" type="text" name="rua" value="{{ old('rua') }}" required autocomplete="rua"
+                                               autofocus>
+                                        @error('rua')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <label for="numero">Numero:</label>
+                                        <input class="form-control @error('numero') is-invalid @enderror" id="numero" type="text" name="numero" value="{{ old('numero') }}" required
+                                               autocomplete="numero"
+                                               autofocus>
+                                        @error('numero')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <input id="password" type="hidden" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"
+                                       value="password">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -157,33 +198,20 @@
                                 <div class="modal-body">
                                     @csrf
                                     <input type="hidden" name="usuario_id" value="{{$usuario->id}}">
+                                    <h6 class="sectionTitle">Informações Gerais</h6>
                                     <div class="row justify-content-center mt-2">
-                                        <div class="col-sm-5">
+                                        <div class="col-sm-4">
                                             <label for="name">Nome:</label>
-                                            <input class="form-control @error('name') is-invalid @enderror" id="name" type="text" name="name" value="{{ $usuario->name }}" required autocomplete="name"
+                                            <input class="form-control @error('nome') is-invalid @enderror" id="nome" type="text" name="nome" value="{{ $usuario->nome }}" required autocomplete="nome"
                                                    autofocus>
-                                            @error('name')
+                                            @error('nome')
                                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                             @enderror
                                         </div>
 
-                                        <div class="col-sm-5">
-                                            <label for="email">E-mail:</label>
-                                            <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ $usuario->email  }}" required
-                                                   autocomplete="email"
-                                                   autofocus>
-                                            @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="row justify-content-center mt-2">
-                                        <div class="col-sm-5">
+                                        <div class="col-sm-4">
                                             <label for="cpf">CPF:</label>
                                             <input class="form-control @error('cpf') is-invalid @enderror" id="cpf" type="text" name="cpf" value="{{ $usuario->cpf }}" required autocomplete="cpf"
                                                    autofocus>
@@ -193,61 +221,98 @@
                                     </span>
                                             @enderror
                                         </div>
-
-                                        <div class="col-sm-5">
+                                        <div class="col-sm-4">
                                             <label for="tipo">Tipo do Usuário:</label>
                                             <select class="form-control" name="tipo">
-                                                <option value="1" @if($usuario->tipoUsuario->id == 1) selected @endif>
+                                                <option @if($usuario->tipo_usuario_id == 1) selected @endif value="1">
                                                     Administrador
                                                 </option>
-                                                <option value="2" @if($usuario->tipoUsuario->id == 2) selected @endif>
+                                                <option @if($usuario->tipo_usuario_id == 2) selected @endif value="2">
                                                     Presidente
                                                 </option>
-                                                <option value="3" @if($usuario->tipoUsuario->id == 3) selected @endif>
+                                                <option @if($usuario->tipo_usuario_id == 3) selected @endif value="3">
                                                     Agricultor
                                                 </option>
                                             </select>
                                         </div>
                                     </div>
 
+                                    <h6 class="sectionTitle">Contato</h6>
+
                                     <div class="row justify-content-center mt-2">
-                                        <div class="col-sm-5">
-                                            <label for="password">{{ __('Senha') }}</label>
-                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                            @error('password')
+                                        <div class="col-sm-6">
+                                            <label for="email">E-mail:</label>
+                                            <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ $usuario->contato->email }}" required autocomplete="email"
+                                                   autofocus>
+                                            @error('email')
                                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                             @enderror
                                         </div>
-                                        <div class="col-sm-5">
-                                            <label for="password-confirm">{{ __('Confirmar Senha') }}</label>
-                                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+
+                                        <div class="col-sm-6">
+                                            <label for="telefone">Telefone:</label>
+                                            <input class="form-control @error('telefone') is-invalid @enderror" id="telefone" type="text" name="telefone" value="{{ $usuario->contato->telefone }}" required
+                                                   autocomplete="telefone"
+                                                   autofocus>
+                                            @error('telefone')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <h6 class="sectionTitle">Endereço</h6>
+
+                                    <div class="row justify-content-center mt-2">
+                                        <div class="col-sm-6">
+                                            <label for="cep">CEP:</label>
+                                            <input class="form-control @error('cep') is-invalid @enderror" id="cep" type="text" name="cep" value="{{ $usuario->endereco->cep }}" required autocomplete="cep"
+                                                   autofocus>
+                                            @error('cep')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label for="bairro">Bairro:</label>
+                                            <input class="form-control @error('bairro') is-invalid @enderror" id="bairro" type="text" name="bairro" value="{{ $usuario->endereco->bairro }}" required
+                                                   autocomplete="bairro"
+                                                   autofocus>
+                                            @error('bairro')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
                                         </div>
                                     </div>
 
                                     <div class="row justify-content-center mt-2">
-                                        <div class="col-sm-5">
-                                            <label for="instituicao">{{ __('Instituição') }}</label>
-                                            <select class="form-control" id="instituicao{{$usuario->id}}" name="instituicao" onchange="unidades('{{$usuario->id}}')">
-                                                <option selected disabled style="font-weight: bolder">
-                                                    Selecione uma Instituição
-                                                </option>
-
-                                            </select>
-                                            @error('instituicao')
+                                        <div class="col-sm-6">
+                                            <label for="rua">Rua:</label>
+                                            <input class="form-control @error('rua') is-invalid @enderror" id="rua" type="text" name="rua" value="{{ $usuario->endereco->rua }}" required autocomplete="rua"
+                                                   autofocus>
+                                            @error('rua')
                                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                             @enderror
                                         </div>
-                                        <div class="col-sm-5">
-                                            <label for="unidade">{{ __('Unidade') }}</label>
-                                            <select class="form-control" id="unidade{{$usuario->id}}" name="unidade">
-                                                <option selected disabled>
-                                                    Selecione uma Unidade
-                                                </option>
-                                            </select>
+
+                                        <div class="col-sm-6">
+                                            <label for="numero">Numero:</label>
+                                            <input class="form-control @error('numero') is-invalid @enderror" id="numero" type="text" name="numero" value="{{ $usuario->endereco->numero }}" required
+                                                   autocomplete="numero"
+                                                   autofocus>
+                                            @error('numero')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
