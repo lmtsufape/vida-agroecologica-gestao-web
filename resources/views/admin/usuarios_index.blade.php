@@ -96,10 +96,10 @@
                                                 Administrador
                                             </option>
                                             <option value="2">
-                                                Avaliador
+                                                Presidente
                                             </option>
                                             <option value="3">
-                                                Solicitante
+                                                Agricultor
                                             </option>
                                         </select>
                                     </div>
@@ -201,10 +201,10 @@
                                                     Administrador
                                                 </option>
                                                 <option value="2" @if($usuario->tipoUsuario->id == 2) selected @endif>
-                                                    Avaliador
+                                                    Presidente
                                                 </option>
                                                 <option value="3" @if($usuario->tipoUsuario->id == 3) selected @endif>
-                                                    Solicitante
+                                                    Agricultor
                                                 </option>
                                             </select>
                                         </div>
