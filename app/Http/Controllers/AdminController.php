@@ -41,4 +41,31 @@ class AdminController extends Controller
 
         return redirect(route('usuarios.index'));
     }
+
+    public function usuario_update(Request $request)
+    {
+        $usuario = User::find($request->usuario_id);
+        $contato = Contato::find($usuario->contato_id);
+        $endereco = Endereco::find($usuario->endereco_id);
+
+        $usuario->nome = $request->nome;
+        $usuario->email = $request->email;
+        $usuario->cpf = $request->cpf;
+        $usuario->password = Hash::make($request->password);
+        $usuario->tipo_usuario_id = $request->tipo;
+
+        $contato->email = $request->email;
+        $contato->telefone = $request->telefone;
+
+        $endereco->bairro = $request->bairro;
+        $endereco->rua = $request->rua;
+        $endereco->numero = $request->numero;
+        $endereco->cep = $request->cep;
+
+        $contato->update();
+        $endereco->update();
+        $usuario->update();
+
+        return redirect(route('usuarios.index'));
+    }
 }
