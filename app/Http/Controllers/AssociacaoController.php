@@ -26,8 +26,8 @@ class AssociacaoController extends Controller
         return redirect(route('associacoes.index'));
     }
 
-    public function update(Request $request, $id){
-        $associacao = Associacao::find($id);
+    public function update(Request $request){
+        $associacao = Associacao::find($request->associacao_id);
         $contato = $associacao->contato;
 
         $contato->email = $request->email;

@@ -147,12 +147,13 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form method="POST" action="{{route('associacao.update',['id' => $associacao->id])}}">
+                            <form method="POST" action="{{route('associacao.update')}}">
                                 @csrf
                                 <div class="modal-body">
                                     @csrf
                                     <h6 class="sectionTitle">Informações Gerais</h6>
 
+                                    <input type="hidden" name="associacao_id" value="{{$associacao->id}}">
                                     <div class="row justify-content-center mt-2">
                                         <div class="col-sm-4">
                                             <label for="nome">Nome:</label>

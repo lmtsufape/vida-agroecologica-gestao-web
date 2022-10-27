@@ -21,10 +21,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/usuarios', [App\Http\Controllers\AdminController::class, 'usuarios_index'])->name('usuarios.index');
-
 Route::get('/associacoes', [App\Http\Controllers\AdminController::class, 'associacoes_index'])->name('associacoes.index');
-Route::post('/associacoes/store', [App\Http\Controllers\AssociacaoController::class, 'store'])->name('associacao.store');
-Route::post('/associacoes/update/{id}', [App\Http\Controllers\AssociacaoController::class, 'update'])->name('associacao.update');
+
+Route::post('/associacao/store', [App\Http\Controllers\AssociacaoController::class, 'store'])->name('associacao.store');
+Route::post('/associacao/update', [App\Http\Controllers\AssociacaoController::class, 'update'])->name('associacao.update');
 
 Route::post('/usuario/store', [App\Http\Controllers\UserController::class, 'store'])->name('usuario.store');
 Route::post('/usuario/update', [App\Http\Controllers\UserController::class, 'update'])->name('usuario.update');
