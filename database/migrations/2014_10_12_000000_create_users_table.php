@@ -24,10 +24,10 @@ return new class extends Migration
             $table->timestamps();
 
             $table->unsignedInteger('tipo_usuario_id');
-            $table->foreign('endereco_id')->references('id')->on('tipo_usuarios');
+            $table->foreign('tipo_usuario_id')->references('id')->on('tipo_usuarios');
             $table->unsignedInteger('endereco_id')->nullable();
             $table->foreign('endereco_id')->references('id')->on('enderecos');
-            $table->unsignedInteger('endereco_id')->nullable();
+            $table->unsignedInteger('contato_id')->nullable();
             $table->foreign('contato_id')->references('id')->on('contatos');
         });
     }
