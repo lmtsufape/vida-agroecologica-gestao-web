@@ -56,7 +56,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form method="POST" action="{{route('associacao.create')}}">
+                        <form method="POST" action="{{route('associacao.store')}}">
                             @csrf
                             <div class="modal-body">
                                 @csrf
@@ -147,7 +147,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form method="POST" action="{{route('associacao.edit',['id' => $associacao->id])}}">
+                            <form method="POST" action="{{route('associacao.update',['id' => $associacao->id])}}">
                                 @csrf
                                 <div class="modal-body">
                                     @csrf

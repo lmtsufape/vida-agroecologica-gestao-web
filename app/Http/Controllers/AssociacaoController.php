@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class AssociacaoController extends Controller
 {
 
-    public function create(Request $request){
+    public function store(Request $request){
         $associacao = new Associacao();
         $contato = new Contato();
 
@@ -26,7 +26,7 @@ class AssociacaoController extends Controller
         return redirect(route('associacoes.index'));
     }
 
-    public function edit(Request $request, $id){
+    public function update(Request $request, $id){
         $associacao = Associacao::find($id);
         $contato = $associacao->contato;
 
