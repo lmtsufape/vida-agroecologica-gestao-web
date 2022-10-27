@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+@charset "UTF-8";
 
 /*!
  * Bootstrap v4.6.1 (https://getbootstrap.com/)
@@ -93,6 +95,14 @@ h5,
 h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    font-size: 22px;
+    color: #1b4b72;
 }
 
 p {
@@ -10954,17 +10964,15 @@ a.text-dark:focus {
 }
 
 
-
-.borda-bottom{
+.borda-bottom {
     border-bottom: 2px solid black;
 }
 
-.borda-top{
+.borda-top {
     border-top: 2px solid black;
 }
 
-.alinhamento-vertical
-{
+.alinhamento-vertical {
     margin: 0;
     position: absolute;
     top: 50%;
@@ -10972,11 +10980,11 @@ a.text-dark:focus {
     transform: translateY(-50%);
 }
 
-label{
+label {
     font-weight: bold;
 }
 
-.caixaSelecao{
+.caixaSelecao {
     left: 0;
     top: 0;
     position: absolute;
@@ -10987,19 +10995,19 @@ label{
     max-width: 280px;
 }
 
-.titulo{
+.titulo {
     color: #131833;
     font-size: 40px;
     font-weight: 700;
 }
 
-.textoCaixa{
+.textoCaixa {
     color: white;
     font-weight: 600;
     font-size: 23px;
 }
 
-.subtitulo{
+.subtitulo {
     color: #143BC2;
     text-decoration: underline #143BC2;
     font-weight: bolder;
@@ -11014,7 +11022,7 @@ label{
     padding: 10px;
 }
 
-.search-input{
+.search-input {
     height: 70%;
     width: 90%;
     border: none;
