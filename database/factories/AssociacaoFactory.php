@@ -19,7 +19,8 @@ class AssociacaoFactory extends Factory
         return [
             'codigo' => '01010101',
             'nome' => 'Associação 1',
-            'user_id' => 2
+            'user_id' => 2,
+            'contato_id' => 1
         ];
     }
 }
