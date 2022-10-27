@@ -26,5 +26,5 @@ Route::get('/associacoes', [App\Http\Controllers\AdminController::class, 'associ
 Route::post('/associacoes/store', [App\Http\Controllers\AssociacaoController::class, 'store'])->name('associacao.store');
 Route::post('/associacoes/update/{id}', [App\Http\Controllers\AssociacaoController::class, 'update'])->name('associacao.update');
 
-Route::post('/usuario/store', [App\Http\Controllers\AdminController::class, 'usuario_store'])->name('usuario.store');
-Route::post('/usuario/update', [App\Http\Controllers\AdminController::class, 'usuario_update'])->name('usuario.update');
+Route::post('/usuario/store', [App\Http\Controllers\UserController::class, 'store'])->name('usuario.store');
+Route::post('/usuario/update', [App\Http\Controllers\UserController::class, 'update'])->name('usuario.update');
