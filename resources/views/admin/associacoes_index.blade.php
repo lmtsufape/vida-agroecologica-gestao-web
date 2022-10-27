@@ -147,7 +147,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form method="POST" action="#">
+                            <form method="POST" action="{{route('associacao.edit',['id' => $associacao->id])}}">
                                 @csrf
                                 <div class="modal-body">
                                     @csrf
@@ -156,7 +156,7 @@
                                     <div class="row justify-content-center mt-2">
                                         <div class="col-sm-4">
                                             <label for="nome">Nome:</label>
-                                            <input class="form-control @error('nome') is-invalid @enderror" id="nome" type="text" nome="nome" value="{{$associacao->nome}}" required autocomplete="nome"
+                                            <input class="form-control @error('nome') is-invalid @enderror" id="nome" type="text" name="nome" value="{{$associacao->nome}}" required autocomplete="nome"
                                                    autofocus>
                                             @error('nome')
                                             <span class="invalid-feedback" role="alert">
@@ -167,7 +167,7 @@
 
                                         <div class="col-sm-4">
                                             <label for="codigo">Código:</label>
-                                            <input class="form-control @error('codigo') is-invalid @enderror" id="codigo" type="codigo" name="codigo" value="{{$associacao->codigo}}" required autocomplete="codigo"
+                                            <input class="form-control @error('codigo') is-invalid @enderror" id="codigo" name="codigo" value="{{$associacao->codigo}}" required autocomplete="codigo"
                                                    autofocus>
                                             @error('codigo')
                                             <span class="invalid-feedback" role="alert">
@@ -208,7 +208,7 @@
 
                                         <div class="col-sm-6">
                                             <label for="telefone">Telefone:</label>
-                                            <input class="form-control @error('telefone') is-invalid @enderror" id="telefone" type="telefone" name="telefone" value="{{$associacao->contato->telefone}}" required autocomplete="telefone"
+                                            <input class="form-control @error('telefone') is-invalid @enderror" id="telefone" name="telefone" value="{{$associacao->contato->telefone}}" required autocomplete="telefone"
                                                    autofocus>
                                             @error('telefone')
                                             <span class="invalid-feedback" role="alert">
@@ -221,7 +221,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                                    <button type="submit" class="btn btn-success">Editar</button>
                                 </div>
                             </form>
                         </div>

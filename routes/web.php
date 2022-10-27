@@ -24,3 +24,4 @@ Route::get('/usuarios', [App\Http\Controllers\AdminController::class, 'usuarios_
 
 Route::get('/associacoes', [App\Http\Controllers\AdminController::class, 'associacoes_index'])->name('associacoes.index');
 Route::post('/associacoes/create', [App\Http\Controllers\AssociacaoController::class, 'create'])->name('associacao.create');
+Route::post('/associacoes/editar/{id}', [App\Http\Controllers\AssociacaoController::class, 'edit'])->name('associacao.edit');

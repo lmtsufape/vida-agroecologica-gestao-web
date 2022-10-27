@@ -26,4 +26,20 @@ class AssociacaoController extends Controller
         return redirect(route('associacoes.index'));
     }
 
+    public function edit(Request $request, $id){
+        $associacao = Associacao::find($id);
+        $contato = $associacao->contato;
+
+        $contato->email = $request->email;
+        $contato->telefone = $request->telefone;
+        $contato->update();
+
+        $associacao->nome = $request->nome;
+        $associacao->codigo = $request->codigo;
+        $associacao->user_id = $request->presidente;
+        $associacao->update();
+
+        return redirect(route('associacoes.index'));
+    }
+
 }
