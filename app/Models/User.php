@@ -42,4 +42,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function tipoUsuario(){
+        return $this->belongsTo('App\Models\TipoUsuario');
+    }
+
+    public function endereco(){
+        return $this->belongsTo('App\Models\Endereco');
+    }
+
+    public function contato(){
+        return $this->belongsTo('App\Models\Contato');
+    }
+
+    public function propriedades(){
+        return $this->hasMany('App\Models\Propriedade');
+    }
+
+    public function associacaoes(){
+        return $this->hasMany('App\Models\Associacao');
+    }
 }
