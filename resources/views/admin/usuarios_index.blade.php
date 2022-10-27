@@ -46,7 +46,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="{{ route('usuario.store') }}">
+                <form method="POST" action="#">
                     @csrf
                     <div class="modal-body">
                         @csrf

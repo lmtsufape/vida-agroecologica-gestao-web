@@ -14,7 +14,7 @@
                 @auth
                     @if(Auth::user()->tipo_usuario_id == 1)
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('Usuarios') }}</a>
+                            <a class="nav-link" href="{{route('usuarios.index')}}">{{ __('Usuarios') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">{{ __('Associações') }}</a>
