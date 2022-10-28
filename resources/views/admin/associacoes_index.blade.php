@@ -40,7 +40,9 @@
                         <td class="text-center">{{$associacao->codigo}}</td>
                         <td class="text-center">{{$associacao->user->nome}}</td>
                         <td class="text-center">
-                            <button class="btn btn-group" type="button" data-toggle="modal" data-target="#editModal_{{$associacao->id}}"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <a class="btn btn-group" href="{{route('ocs.index',['associacao_id' => $associacao->id])}}"><i class="fa-solid fa-up-right-from-square"></i></a>
+
+                            <a class="btn btn-group" type="button" data-toggle="modal" data-target="#editModal_{{$associacao->id}}"><i class="fa-solid fa-pen-to-square"></i></a>
                         </td>
                     </tr>
                 @endforeach
