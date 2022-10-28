@@ -48,4 +48,31 @@ class OrganizacaoControleSocialController extends Controller
         return redirect(route('ocs.index',['associacao_id' => $request->associacao_id]));
     }
 
+    public function update(Request $request){
+        $ocs = OrganizacaoControleSocial::find($request->ocs_id);
+        $contato = $ocs->contato;
+        $endereco = $ocs->endereco;
+
+        $contato->email = $request->email;
+        $contato->telefone = $request->telefone;
+        $contato->update();
+
+        $endereco->pais = $request->pais;
+        $endereco->uf = $request->uf;
+        $endereco->cidade = $request->cidade;
+        $endereco->cep = $request->cep;
+        $endereco->bairro = $request->bairro;
+        $endereco->rua = $request->rua;
+        $endereco->numero = $request->numero;
+        $endereco->update();
+
+        $ocs->nome = $request->nome;
+        $ocs->representante = $request->representante;
+        $ocs->cnpj = $request->cnpj;
+        $ocs->data_fundacao = $request->data_fundacao;
+        $ocs->update();
+
+        return redirect(route('ocs.index',['associacao_id' => $ocs->associacao_id]));
+    }
+
 }

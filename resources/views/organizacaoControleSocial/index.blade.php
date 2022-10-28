@@ -238,100 +238,199 @@
                     </div>
                 </div>
             </div>
-            {{--
-                        @foreach($associacoes as $associacao)
-                            <div class="modal fade" id="editModal_{{$associacao->id}}" tabindex="-1" role="dialog" aria-labelledby="cadastroModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-xl" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="cadastroModalLabel">Editar Associação</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <form method="POST" action="{{route('associacao.update')}}">
-                                            @csrf
-                                            <div class="modal-body">
-                                                @csrf
-                                                <h6 class="sectionTitle">Informações Gerais</h6>
 
-                                                <input type="hidden" name="associacao_id" value="{{$associacao->id}}">
-                                                <div class="row justify-content-center mt-2">
-                                                    <div class="col-sm-4">
-                                                        <label for="nome">Nome:</label>
-                                                        <input class="form-control @error('nome') is-invalid @enderror" id="nome" type="text" name="nome" value="{{$associacao->nome}}" required autocomplete="nome"
-                                                               autofocus>
-                                                        @error('nome')
-                                                        <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                        @enderror
-                                                    </div>
-
-                                                    <div class="col-sm-4">
-                                                        <label for="codigo">Código:</label>
-                                                        <input class="form-control @error('codigo') is-invalid @enderror" id="codigo" name="codigo" value="{{$associacao->codigo}}" required autocomplete="codigo"
-                                                               autofocus>
-                                                        @error('codigo')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                        @enderror
-                                                    </div>
-
-                                                    <div class="col-sm-4">
-                                                        <label for="presidente">{{ __('Presidente:') }}</label>
-                                                        <select class="form-control" id="presidente_create" name="presidente">
-                                                            <option selected disabled style="font-weight: bolder">
-                                                                Selecione um Presidente
-                                                            </option>
-                                                            @foreach($presidentes as $presidente)
-                                                                <option value="{{$presidente->id}}" @if($associacao->user->id == $presidente->id) selected @endif>
-                                                                    {{$presidente->nome}}
-                                                                </option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <br>
-                                                <h6 class="sectionTitle">Contato</h6>
-
-                                                <div class="row justify-content-center mt-2">
-                                                    <div class="col-sm-6">
-                                                        <label for="email">E-mail:</label>
-                                                        <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{$associacao->contato->email}}" required autocomplete="email"
-                                                               autofocus>
-                                                        @error('email')
-                                                        <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                        @enderror
-                                                    </div>
-
-                                                    <div class="col-sm-6">
-                                                        <label for="telefone">Telefone:</label>
-                                                        <input class="form-control @error('telefone') is-invalid @enderror" id="telefone" name="telefone" value="{{$associacao->contato->telefone}}" required autocomplete="telefone"
-                                                               autofocus>
-                                                        @error('telefone')
-                                                        <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                                <button type="submit" class="btn btn-success">Editar</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+            {{-- Edição de Organização de Controle Social --}}
+            @foreach($lista_ocs as $ocs)
+                <div class="modal fade" id="editModal_{{$ocs->id}}" tabindex="-1" role="dialog" aria-labelledby="cadastroModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="cadastroModalLabel">Editar Organização de Controle Social</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                        @endforeach
-                        --}}
+                            <form method="POST" action="{{route('ocs.update')}}">
+                                @csrf
+                                <div class="modal-body">
+                                    @csrf
+                                    <h6 class="sectionTitle">Informações Gerais</h6>
+
+                                    <input type="hidden" name="ocs_id" value="{{$ocs->id}}">
+                                    <div class="row justify-content-center mt-2">
+                                        <div class="col-sm-6">
+                                            <label for="nome">Nome:</label>
+                                            <input class="form-control @error('nome') is-invalid @enderror" id="nome" type="text" name="nome" value="{{ $ocs->nome }}" required autocomplete="nome"
+                                                   autofocus>
+                                            @error('nome')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label for="cnpj">CNPJ:</label>
+                                            <input class="form-control @error('cnpj') is-invalid @enderror" id="cnpj" name="cnpj" value="{{ $ocs->cnpj }}" required autocomplete="cnpj"
+                                                   autofocus>
+                                            @error('cnpj')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-center mt-2">
+                                        <div class="col-sm-6">
+                                            <label for="representante">Representante:</label>
+                                            <input class="form-control @error('representante') is-invalid @enderror" id="representante" type="text" name="representante" value="{{ $ocs->representante }}" required autocomplete="representante"
+                                                   autofocus>
+                                            @error('representante')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label for="data_fundacao">Data de Fundação:</label>
+                                            <input type="date" class="form-control @error('data_fundacao') is-invalid @enderror" id="data_fundacao" name="data_fundacao" value="{{ $ocs->data_fundacao }}" required autocomplete="data_fundacao"
+                                                   autofocus>
+                                            @error('data_fundacao')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <h6 class="sectionTitle">Contato</h6>
+
+                                    <div class="row justify-content-center mt-2">
+                                        <div class="col-sm-6">
+                                            <label for="email">E-mail:</label>
+                                            <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ $ocs->contato->email }}" required autocomplete="email"
+                                                   autofocus>
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label for="telefone">Telefone:</label>
+                                            <input class="form-control @error('telefone') is-invalid @enderror" id="telefone" name="telefone" value="{{ $ocs->contato->telefone }}" required autocomplete="telefone"
+                                                   autofocus>
+                                            @error('telefone')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <h6 class="sectionTitle">Endereço</h6>
+
+                                    <div class="row justify-content-center mt-2">
+                                        <div class="col-sm-4">
+                                            <label for="pais">Pais:</label>
+                                            <input class="form-control @error('pais') is-invalid @enderror" id="pais" type="text" name="pais" value="{{ $ocs->endereco->pais }}" required autocomplete="pais"
+                                                   autofocus>
+                                            @error('pais')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <label for="uf">Estado:</label>
+                                            <input class="form-control @error('uf') is-invalid @enderror" id="uf" type="text" name="uf" value="{{ $ocs->endereco->uf }}" required
+                                                   autocomplete="uf"
+                                                   autofocus>
+                                            @error('uf')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <label for="cidade">Cidade:</label>
+                                            <input class="form-control @error('cidade') is-invalid @enderror" id="cidade" type="text" name="cidade" value="{{ $ocs->endereco->cidade }}" required
+                                                   autocomplete="cidade"
+                                                   autofocus>
+                                            @error('cidade')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-center mt-2">
+                                        <div class="col-sm-6">
+                                            <label for="cep">CEP:</label>
+                                            <input class="form-control @error('cep') is-invalid @enderror" id="cep" type="text" name="cep" value="{{ $ocs->endereco->cep }}" required autocomplete="cep"
+                                                   autofocus>
+                                            @error('cep')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label for="bairro">Bairro:</label>
+                                            <input class="form-control @error('bairro') is-invalid @enderror" id="bairro" type="text" name="bairro" value="{{ $ocs->endereco->bairro }}" required
+                                                   autocomplete="bairro"
+                                                   autofocus>
+                                            @error('bairro')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-center mt-2">
+                                        <div class="col-sm-6">
+                                            <label for="rua">Rua:</label>
+                                            <input class="form-control @error('rua') is-invalid @enderror" id="rua" type="text" name="rua" value="{{ $ocs->endereco->rua }}" required autocomplete="rua"
+                                                   autofocus>
+                                            @error('rua')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label for="numero">Número:</label>
+                                            <input class="form-control @error('numero') is-invalid @enderror" id="numero" type="text" name="numero" value="{{ $ocs->endereco->numero }}" required
+                                                   autocomplete="numero"
+                                                   autofocus>
+                                            @error('numero')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="submit" class="btn btn-success">Editar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
         <div class="col-md-2"></div>
     </div>
