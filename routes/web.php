@@ -30,3 +30,5 @@ Route::post('/associacao/update', [App\Http\Controllers\AssociacaoController::cl
 Route::post('/usuario/store', [App\Http\Controllers\UserController::class, 'store'])->name('usuario.store');
 Route::post('/usuario/update', [App\Http\Controllers\UserController::class, 'update'])->name('usuario.update');
 
+Route::post('/organizacaoControleSocial/store', [App\Http\Controllers\OrganizacaoControleSocialController::class, 'store'])->name('ocs.store');
+Route::post('/organizacaoControleSocial/update', [App\Http\Controllers\OrganizacaoControleSocialController::class, 'update'])->name('ocs.update');
