@@ -27,3 +27,7 @@ Route::post('/organizacaoControleSocial/store', [App\Http\Controllers\Api\Organi
 Route::post('/organizacaoControleSocial/update', [App\Http\Controllers\Api\OrganizacaoControleSocialController::class,'update']);
 Route::get('/associacao/{associacao_id}/organizacaoControleSocial', [App\Http\Controllers\Api\OrganizacaoControleSocialController::class,'index']);
 
+// Proprieadade
+Route::post('/propriedade/store', [App\Http\Controllers\Api\PropriedadeController::class,'store']);
+Route::post('/propriedade/update', [App\Http\Controllers\Api\PropriedadeController::class,'update']);
+Route::get('/usuario/{user_id}/propriedades', [App\Http\Controllers\Api\PropriedadeController::class,'index']);
