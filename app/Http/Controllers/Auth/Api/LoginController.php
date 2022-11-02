@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     public function login(Request $request){
-
         // Separação do necessario para a verificação das credenciais
         $credentials = $request->only('email','password');
 
