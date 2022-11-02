@@ -22,6 +22,12 @@ Route::prefix('auth')->group(function (){
    Route::post('login', [App\Http\Controllers\Auth\Api\LoginController::class,'login']);
 });
 
+// Usuario
+Route::post('login', [App\Http\Controllers\Auth\Api\LoginController::class, 'login']);
+Route::post('cadastro', [App\Http\Controllers\Auth\Api\UserController::class, 'store']);
+Route::post('atualizar/usuario', [App\Http\Controllers\Auth\Api\UserController::class, 'update']);
+Route::get('users', [\App\Http\Controllers\Auth\Api\UserController::class, 'index']);
+
 // OCS
 Route::post('/organizacaoControleSocial/store', [App\Http\Controllers\Api\OrganizacaoControleSocialController::class,'store']);
 Route::post('/organizacaoControleSocial/update', [App\Http\Controllers\Api\OrganizacaoControleSocialController::class,'update']);
@@ -31,3 +37,8 @@ Route::get('/associacao/{associacao_id}/organizacaoControleSocial', [App\Http\Co
 Route::post('/propriedade/store', [App\Http\Controllers\Api\PropriedadeController::class,'store']);
 Route::post('/propriedade/update', [App\Http\Controllers\Api\PropriedadeController::class,'update']);
 Route::get('/usuario/{user_id}/propriedades', [App\Http\Controllers\Api\PropriedadeController::class,'index']);
+
+// Associacao
+Route::post('cadastrar/associacao', [\App\Http\Controllers\Auth\Api\AssociacaoController::class, 'store']);
+Route::post('atualizar/associacao', [\App\Http\Controllers\Auth\Api\AssociacaoController::class, 'update']);
+Route::get('associacoes', [\App\Http\Controllers\Auth\Api\AssociacaoController::class, 'index']);
