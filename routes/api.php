@@ -46,11 +46,12 @@ Route::middleware(['auth:sanctum', 'type.admin.presidente'])->group(function () 
 
 });
 
-//Rotas só do presidente, caso necessário.
-//Route::middleware(['auth:sanctum', 'type.presidente'])->group(function () {
-//});
+Route::middleware(['auth:sanctum', 'type.presidente'])->group(function () {
+    //minhas associações
+});
 
 Route::middleware(['auth:sanctum', 'type.agricultor'])->group(function () {
+
     // Propriedade
     Route::post('/propriedade/store', [App\Http\Controllers\Api\PropriedadeController::class, 'store']);
     Route::post('/propriedade/update', [App\Http\Controllers\Api\PropriedadeController::class, 'update']);
