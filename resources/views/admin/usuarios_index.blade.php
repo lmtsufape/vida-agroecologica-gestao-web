@@ -77,8 +77,8 @@
                                         @enderror
                                     </div>
                                     <div class="col-sm-4">
-                                        <label for="tipo">Tipo do Usuário:</label>
-                                        <select class="form-control" name="tipo">
+                                        <label for="tipo_usuario_id">Tipo do Usuário:</label>
+                                        <select class="form-control" name="tipo_usuario_id">
                                             <option value="1">
                                                 Administrador
                                             </option>
@@ -222,8 +222,8 @@
                                             @enderror
                                         </div>
                                         <div class="col-sm-4">
-                                            <label for="tipo">Tipo do Usuário:</label>
-                                            <select class="form-control" name="tipo">
+                                            <label for="tipo_usuario_id">Tipo do Usuário:</label>
+                                            <select class="form-control" name="tipo_usuario_id">
                                                 <option @if($usuario->tipo_usuario_id == 1) selected @endif value="1">
                                                     Administrador
                                                 </option>

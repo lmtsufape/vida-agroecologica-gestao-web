@@ -31,7 +31,7 @@ class UserController extends Controller
         $usuario->email = $request->email;
         $usuario->cpf = $request->cpf;
         $usuario->password = Hash::make($request->password);
-        $usuario->tipo_usuario_id = $request->tipo;
+        $usuario->tipo_usuario_id = $request->tipo_usuario_id;
         $usuario->endereco_id = $endereco->id;
         $usuario->contato_id = $contato->id;
         $usuario->save();
@@ -53,7 +53,7 @@ class UserController extends Controller
         $usuario->email = $request->email;
         $usuario->cpf = $request->cpf;
         $usuario->password = Hash::make($request->password);
-        $usuario->tipo_usuario_id = $request->tipo;
+        $usuario->tipo_usuario_id = $request->tipo_usuario_id;
 
         $contato->email = $request->email;
         $contato->telefone = $request->telefone;
