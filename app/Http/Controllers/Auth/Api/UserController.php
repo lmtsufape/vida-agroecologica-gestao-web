@@ -40,7 +40,7 @@ class UserController extends Controller
             'data' => [
                 'status'  => "Usuário Criado com Sucesso!"
             ]
-        ]);;
+        ]);
     }
 
     public function update(Request $request)
@@ -71,7 +71,7 @@ class UserController extends Controller
             'data' => [
                 'status'  => "Usuário Atualizado com Sucesso!"
             ]
-        ]);;
+        ]);
     }
 
     public function index(){
