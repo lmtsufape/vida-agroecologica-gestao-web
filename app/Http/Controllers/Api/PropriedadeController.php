@@ -7,6 +7,7 @@ use App\Models\Endereco;
 use App\Models\Propriedade;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PropriedadeController extends Controller
 {
@@ -31,7 +32,7 @@ class PropriedadeController extends Controller
         $endereco->save();
 
         $propriedade->nome = $request->nome;
-        $propriedade->user_id = $request->user_id;
+        $propriedade->user_id = auth()->user()->id;
         $propriedade->endereco_id = $endereco->id;
         $propriedade->save();
 
