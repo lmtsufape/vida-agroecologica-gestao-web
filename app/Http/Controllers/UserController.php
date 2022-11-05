@@ -35,6 +35,9 @@ class UserController extends Controller
         $usuario->tipo_usuario_id = $request->tipo_usuario_id;
         $usuario->endereco_id = $endereco->id;
         $usuario->contato_id = $contato->id;
+        if(!empty($request->organizacao_controle_social_id)){
+            $usuario->organizacao_controle_social_id = $request->organizacao_controle_social_id;
+        }
         $usuario->save();
 
         return redirect(route('usuarios.index'));
