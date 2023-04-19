@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\Auth\Api\UserController as UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 Route::middleware(['auth:sanctum', 'type.admin'])->group(function () {
     // Usuario
-    Route::post('cadastro', [App\Http\Controllers\Auth\Api\UserController::class, 'store']);
-    Route::post('atualizar/usuario', [App\Http\Controllers\Auth\Api\UserController::class, 'update']);
-    Route::get('users', [\App\Http\Controllers\Auth\Api\UserController::class, 'index']);
+    Route::post('cadastro', [UserController::class, 'store']);
+    Route::post('atualizar/usuario', [UserController::class, 'update']);
+    Route::get('users', [UserController::class, 'index']);
 
     // Associacao
     Route::get('associacoes', [\App\Http\Controllers\Auth\Api\AssociacaoController::class, 'index']);
@@ -57,3 +58,5 @@ Route::middleware(['auth:sanctum', 'type.agricultor'])->group(function () {
     Route::post('/propriedade/update', [App\Http\Controllers\Api\PropriedadeController::class, 'update']);
     Route::get('/usuario/{user_id}/propriedades', [App\Http\Controllers\Api\PropriedadeController::class, 'index']);
 });
+
+Route::post('/verifica', [UserController::class, 'verificaUsuario']);

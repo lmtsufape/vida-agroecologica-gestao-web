@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Contato;
 use App\Models\Endereco;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -80,5 +81,15 @@ class UserController extends Controller
     public function index(){
         $users = User::all();
         return response()->json($users);
+    }
+
+    public function verificaUsuario(Request $request)
+    {
+        $user = DB::table('users')->where('cpf', $request->cpf)
+        ->whereNotNull('organizacao_controle_social_id')->get();
+        if($user->isEmpty()){
+            return response()->json(['erro' => 'Usuário não encontrado'],404);
+        }
+        return response()->json(true,200);
     }
 }
