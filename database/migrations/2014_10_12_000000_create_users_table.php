@@ -23,8 +23,6 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->unsignedInteger('organizacao_controle_social_id')->nullable();
-            $table->foreign('organizacao_controle_social_id')->references('id')->on('organizacao_controle_socials');
             $table->unsignedInteger('tipo_usuario_id');
             $table->foreign('tipo_usuario_id')->references('id')->on('tipo_usuarios');
             $table->unsignedInteger('endereco_id')->nullable();
