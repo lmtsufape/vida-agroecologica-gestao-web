@@ -7,6 +7,7 @@ use App\Models\Contato;
 use App\Models\Endereco;
 use App\Models\OrganizacaoControleSocial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrganizacaoControleSocialController extends Controller
 {
@@ -75,4 +76,9 @@ class OrganizacaoControleSocialController extends Controller
         return redirect(route('ocs.index',['associacao_id' => $ocs->associacao_id]));
     }
 
+    public function show()
+    {
+        //fazer um join para pegar todos os usuario d euma ocs
+        $usuarios = DB::table('users');
+    }
 }
