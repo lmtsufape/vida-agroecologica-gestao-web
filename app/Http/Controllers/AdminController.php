@@ -13,6 +13,7 @@ class AdminController extends Controller
 {
     public function usuarios_index(){
         $users = User::all();
+        //dd($users);
         return view('admin.usuarios_index', compact('users'));
     }
 
