@@ -21,7 +21,7 @@ class User extends Authenticatable
         'nome',
         'email',
         'password',
-        'cpf',
+        'cpf'
     ];
 
     /**
@@ -61,5 +61,9 @@ class User extends Authenticatable
 
     public function associacaoes(){
         return $this->hasMany('App\Models\Associacao');
+    }
+
+    public function organizacao() {
+        return $this->belongsTo(OrganizacaoControleSocial::class, "organizacao_controle_social_id");
     }
 }

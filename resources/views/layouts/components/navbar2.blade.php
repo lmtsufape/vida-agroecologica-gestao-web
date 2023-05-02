@@ -16,12 +16,16 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('usuarios.index')}}">{{ __('Usuarios') }}</a>
                         </li>
+                    @endif
+                    @if (Auth::user()->tipo_usuario_id == 1 || Auth::user()->tipo_usuario_id == 2 )
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('associacoes.index')}}">{{ __('Associações') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('agricultores.index')}}">{{ __('Agricultores') }}</a>
+                        </li>
                     @endif
                 @endauth
-
             </ul>
 
             <!-- Right Side Of Navbar -->

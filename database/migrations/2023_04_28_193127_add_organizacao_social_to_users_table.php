@@ -14,9 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedInteger('organizacao_controle_social_id')->nullable();
-            $table->foreign('organizacao_controle_social_id')->references('id')->on('organizacao_controle_socials');
-            //
+            $table->foreignId('organizacao_controle_social_id')->nullable()->constrained('organizacao_controle_socials');
         });
     }
 
@@ -27,8 +25,5 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
     }
 };
