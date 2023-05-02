@@ -14,8 +14,8 @@ class TipoUsuarioSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\TipoUsuario::factory(1)->create(['nome' => 'Administrador']);
-        \App\Models\TipoUsuario::factory(1)->create(['nome' => 'Presidente']);
-        \App\Models\TipoUsuario::factory(1)->create(['nome' => 'Agricultor']);
+        \App\Models\TipoUsuario::factory(1)->create(['name' => 'Administrador']);
+        \App\Models\TipoUsuario::factory(1)->create(['name' => 'Presidente']);
+        \App\Models\TipoUsuario::factory(1)->create(['name' => 'Agricultor']);
     }
 }

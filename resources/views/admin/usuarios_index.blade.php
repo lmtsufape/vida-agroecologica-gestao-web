@@ -28,10 +28,10 @@
                 <tbody>
                 @foreach($users as $usuario)
                     <tr>
-                        <td class="text-center">{{$usuario->nome}}</td>
+                        <td class="text-center">{{$usuario->name}}</td>
                         <td class="text-center">{{$usuario->email}}</td>
                         <td class="text-center">{{$usuario->cpf}}</td>
-                        <td class="text-center">{{$usuario->tipoUsuario->nome}}</td>
+                        <td class="text-center">{{$usuario->tipoUsuario->name}}</td>
                         <td class="text-center">
                             <button class="btn btn-group" type="button" data-toggle="modal" data-target="#editModal_{{$usuario->id}}"><i class="fa-solid fa-pen-to-square"></i></button>
                         </td>
@@ -57,9 +57,9 @@
                                 <div class="row justify-content-center mt-2">
                                     <div class="col-sm-4">
                                         <label for="name">Nome:</label>
-                                        <input class="form-control @error('nome') is-invalid @enderror" id="nome" type="text" name="nome" value="{{ old('nome') }}" required autocomplete="nome"
+                                        <input class="form-control @error('name') is-invalid @enderror" id="name" type="text" name="name" value="{{ old('name') }}" required autocomplete="name"
                                                autofocus>
-                                        @error('nome')
+                                        @error('name')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

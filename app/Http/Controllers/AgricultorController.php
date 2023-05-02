@@ -29,7 +29,7 @@ class AgricultorController extends Controller
     public function vincularAgricultoOrganizacao(VinculaAgricultoOrganizacaoRequest $request) {
         try {
             $dados = $request->validated();
-            $this->agricultoService->vincularAgricultorOrganizacao($dados->agricultor_id, $dados->organizacao_id);
+            $this->agricultoService->vincularAgricultorOrganizacao($dados['agricultor_id'], $dados['organizacao_id']);
             return redirect(route('agricultores.index'))->with('sucesso', 'Organização vincula com sucesso!');
         } catch(Exception $e) {
             Log::error($e->getMessage());
