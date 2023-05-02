@@ -20,4 +20,8 @@ class OrganizacaoControleSocial extends Model
     public function associacao(){
         return $this->belongsTo('App\Models\Associacao');
     }
+
+    public function agricultor() {
+        return $this->hasOne(User::class);
+    }
 }

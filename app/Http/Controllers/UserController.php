@@ -28,7 +28,7 @@ class UserController extends Controller
         $endereco->cep = $request->cep;
         $endereco->save();
 
-        $usuario->nome = $request->nome;
+        $usuario->name = $request->name;
         $usuario->email = $request->email;
         $usuario->cpf = $request->cpf;
         $usuario->password = Hash::make($request->password);
@@ -49,7 +49,7 @@ class UserController extends Controller
         $contato = Contato::find($usuario->contato_id);
         $endereco = Endereco::find($usuario->endereco_id);
 
-        $usuario->nome = $request->nome;
+        $usuario->name = $request->name;
         $usuario->email = $request->email;
         $usuario->cpf = $request->cpf;
         $usuario->password = Hash::make($request->password);

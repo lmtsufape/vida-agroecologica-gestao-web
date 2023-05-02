@@ -18,10 +18,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'nome',
+        'name',
         'email',
         'password',
         'cpf',
+        'tipo_usuario_id',
     ];
 
     /**
@@ -61,5 +62,9 @@ class User extends Authenticatable
 
     public function associacaoes(){
         return $this->hasMany('App\Models\Associacao');
+    }
+
+    public function organizacao() {
+        return $this->belongsTo(OrganizacaoControleSocial::class, "organizacao_controle_social_id");
     }
 }

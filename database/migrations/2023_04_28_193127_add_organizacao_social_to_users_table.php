@@ -13,10 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_usuarios', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreignId('organizacao_controle_social_id')->nullable()->constrained('organizacao_controle_socials');
         });
     }
 
@@ -27,6 +25,5 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_usuarios');
     }
 };
