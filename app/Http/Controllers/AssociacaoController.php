@@ -2,44 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Associacao;
-use App\Models\Contato;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreAssociacaoRequest;
+use App\Http\Requests\UpdateAssociacaoRequest;
+use App\Interfaces\IAssociacaoService;
 
 class AssociacaoController extends Controller
 {
 
-    public function store(Request $request){
-        $associacao = new Associacao();
-        $contato = new Contato();
+    private $associacaoService;
 
-        $contato->email = $request->email;
-        $contato->telefone = $request->telefone;
-        $contato->save();
-
-        $associacao->nome = $request->nome;
-        $associacao->codigo = $request->codigo;
-        $associacao->user_id = $request->presidente;
-        $associacao->contato_id = $contato->id;
-        $associacao->save();
-
-        return redirect(route('associacoes.index'));
+    public function __construct(IAssociacaoService $associacaoService) {
+        $this->associacaoService = $associacaoService;
     }
 
-    public function update(Request $request){
-        $associacao = Associacao::find($request->associacao_id);
-        $contato = $associacao->contato;
-
-        $contato->email = $request->email;
-        $contato->telefone = $request->telefone;
-        $contato->update();
-
-        $associacao->nome = $request->nome;
-        $associacao->codigo = $request->codigo;
-        $associacao->user_id = $request->presidente;
-        $associacao->update();
-
-        return redirect(route('associacoes.index'));
+    public function store(StoreAssociacaoRequest $request){
+        $this->associacaoService->salvarAssociacao($request->validated());
+        return redirect(route('associacoes.index'))->with('sucesso', 'Associação cadastrada com sucesso!');
     }
 
+    public function update(UpdateAssociacaoRequest $request){
+        $this->associacaoService->atualizarAssociacao($request->validated());
+        return redirect(route('associacoes.index'))->with('sucesso', 'Associação atualizada com sucesso!');
+    }
 }

@@ -9,6 +9,11 @@ class Contato extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'email',
+        'telefone'
+    ];
+
     public function user(){
         return $this->hasOne('App\Models\User');
     }

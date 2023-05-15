@@ -23,7 +23,15 @@
                     </button>
                 </div>
             </div>
-
+            @if(session('sucesso'))
+                <div class="row">
+                    <div class="col-md-12" style="margin-top: 5px;">
+                        <div class="alert alert-success" role="alert">
+                            <p>{{session('sucesso')}}</p>
+                        </div>
+                    </div>
+                </div>
+            @endif
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -38,10 +46,9 @@
                     <tr>
                         <td class="text-center">{{$associacao->nome}}</td>
                         <td class="text-center">{{$associacao->codigo}}</td>
-                        <td class="text-center">{{$associacao->user->nome}}</td>
+                        <td class="text-center">{{$associacao->user->name}}</td>
                         <td class="text-center">
                             <a class="btn btn-group" href="{{route('ocs.index',['associacao_id' => $associacao->id])}}"><i class="fa-solid fa-up-right-from-square"></i></a>
-
                             <a class="btn btn-group" type="button" data-toggle="modal" data-target="#editModal_{{$associacao->id}}"><i class="fa-solid fa-pen-to-square"></i></a>
                         </td>
                     </tr>
@@ -70,9 +77,9 @@
                                         <input class="form-control @error('nome') is-invalid @enderror" id="nome" type="text" name="nome" value="{{ old('nome') }}" required autocomplete="nome"
                                                autofocus>
                                         @error('nome')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
 
@@ -81,9 +88,9 @@
                                         <input class="form-control @error('codigo') is-invalid @enderror" id="codigo" name="codigo" value="{{ old('codigo') }}" required autocomplete="codigo"
                                                autofocus>
                                         @error('codigo')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
 
@@ -95,7 +102,7 @@
                                             </option>
                                             @foreach($presidentes as $presidente)
                                                 <option value="{{$presidente->id}}">
-                                                    {{$presidente->nome}}
+                                                    {{$presidente->name}}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -111,20 +118,20 @@
                                         <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email"
                                                autofocus>
                                         @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
 
                                     <div class="col-sm-6">
                                         <label for="telefone">Telefone:</label>
-                                        <input class="form-control @error('telefone') is-invalid @enderror" id="telefone" name="telefone" value="{{ old('telefone') }}" required autocomplete="telefone"
+                                        <input class="form-control @error('telefone') is-invalid @enderror telefone" id="telefone" name="telefone" value="{{ old('telefone') }}" required autocomplete="telefone"
                                                autofocus>
                                         @error('telefone')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -162,9 +169,9 @@
                                             <input class="form-control @error('nome') is-invalid @enderror" id="nome" type="text" name="nome" value="{{$associacao->nome}}" required autocomplete="nome"
                                                    autofocus>
                                             @error('nome')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
 
@@ -173,9 +180,9 @@
                                             <input class="form-control @error('codigo') is-invalid @enderror" id="codigo" name="codigo" value="{{$associacao->codigo}}" required autocomplete="codigo"
                                                    autofocus>
                                             @error('codigo')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
 
@@ -187,7 +194,7 @@
                                                 </option>
                                                 @foreach($presidentes as $presidente)
                                                     <option value="{{$presidente->id}}" @if($associacao->user->id == $presidente->id) selected @endif>
-                                                        {{$presidente->nome}}
+                                                        {{$presidente->name}}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -203,20 +210,20 @@
                                             <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{$associacao->contato->email}}" required autocomplete="email"
                                                    autofocus>
                                             @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
 
                                         <div class="col-sm-6">
                                             <label for="telefone">Telefone:</label>
-                                            <input class="form-control @error('telefone') is-invalid @enderror" id="telefone" name="telefone" value="{{$associacao->contato->telefone}}" required autocomplete="telefone"
+                                            <input class="form-control @error('telefone') is-invalid @enderror telefone" id="telefone" name="telefone" value="{{$associacao->contato->telefone}}" required autocomplete="telefone"
                                                    autofocus>
                                             @error('telefone')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
                                     </div>
@@ -234,6 +241,20 @@
         </div>
         <div class="col-md-2"></div>
     </div>
+
+    <script>
+        $(document).ready(function($) {
+            let SPMaskBehavior = function(val) {
+                    return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+                },
+                spOptions = {
+                    onKeyPress: function(val, e, field, options) {
+                        field.mask(SPMaskBehavior.apply({}, arguments), options);
+                    }
+                };
+            $('.telefone').mask(SPMaskBehavior, spOptions);
+        });
+    </script>
 
     <script>
         $('.table').DataTable({

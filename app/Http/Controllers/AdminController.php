@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Associacao;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
     public function usuarios_index(){
-        $users = User::all();
+        $users = User::all()->except(Auth::id());
         return view('admin.usuarios_index', compact('users'));
     }
 

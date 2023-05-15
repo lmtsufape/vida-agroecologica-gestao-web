@@ -8,6 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Endereco extends Model
 {
     use HasFactory;
+    
+    protected $fillable = [
+        'pais',
+        'cidade',
+        "uf",
+        "rua",
+        "bairro",
+        "numero",
+        "cep"
+    ];
 
     public function user(){
         return $this->hasOne('App\Models\User');

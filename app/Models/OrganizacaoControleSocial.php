@@ -9,6 +9,16 @@ class OrganizacaoControleSocial extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'nome',
+        'representante',
+        "cnpj",
+        "data_fundacao",
+        "contato_id",
+        "endereco_id",
+        "associacao_id"
+    ];
+
     public function endereco(){
         return $this->belongsTo('App\Models\Endereco');
     }
