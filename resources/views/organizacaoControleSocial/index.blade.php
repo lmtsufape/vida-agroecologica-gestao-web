@@ -23,7 +23,15 @@
                     </button>
                 </div>
             </div>
-
+            @if(session('sucesso'))
+                <div class="row">
+                    <div class="col-md-12" style="margin-top: 5px;">
+                        <div class="alert alert-success" role="alert">
+                            <p>{{session('sucesso')}}</p>
+                        </div>
+                    </div>
+                </div>
+            @endif
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -71,20 +79,20 @@
                                         <input class="form-control @error('nome') is-invalid @enderror" id="nome" type="text" name="nome" value="{{ old('nome') }}" required autocomplete="nome"
                                                autofocus>
                                         @error('nome')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
 
                                     <div class="col-sm-6">
                                         <label for="cnpj">CNPJ:</label>
-                                        <input class="form-control @error('cnpj') is-invalid @enderror" id="cnpj" name="cnpj" value="{{ old('cnpj') }}" required autocomplete="cnpj"
+                                        <input class="form-control @error('cnpj') is-invalid @enderror cnpj" id="cnpj" name="cnpj" value="{{ old('cnpj') }}" required autocomplete="cnpj"
                                                autofocus>
                                         @error('cnpj')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -95,9 +103,9 @@
                                         <input class="form-control @error('representante') is-invalid @enderror" id="representante" type="text" name="representante" value="{{ old('representante') }}" required autocomplete="representante"
                                                autofocus>
                                         @error('representante')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
 
@@ -106,9 +114,9 @@
                                         <input type="date" class="form-control @error('data_fundacao') is-invalid @enderror" id="data_fundacao" name="data_fundacao" value="{{ old('data_fundacao') }}" required autocomplete="data_fundacao"
                                                autofocus>
                                         @error('data_fundacao')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -122,20 +130,20 @@
                                         <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email"
                                                autofocus>
                                         @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
 
                                     <div class="col-sm-6">
                                         <label for="telefone">Telefone:</label>
-                                        <input class="form-control @error('telefone') is-invalid @enderror" id="telefone" name="telefone" value="{{ old('telefone') }}" required autocomplete="telefone"
+                                        <input class="form-control @error('telefone') is-invalid @enderror telefone" id="telefone" name="telefone" value="{{ old('telefone') }}" required autocomplete="telefone"
                                                autofocus>
                                         @error('telefone')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -148,9 +156,9 @@
                                         <input class="form-control @error('pais') is-invalid @enderror" id="pais" type="text" name="pais" value="{{ old('pais') }}" required autocomplete="pais"
                                                autofocus>
                                         @error('pais')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
 
@@ -160,9 +168,9 @@
                                                autocomplete="uf"
                                                autofocus>
                                         @error('uf')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
 
@@ -172,9 +180,9 @@
                                                autocomplete="cidade"
                                                autofocus>
                                         @error('cidade')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -182,12 +190,12 @@
                                 <div class="row justify-content-center mt-2">
                                     <div class="col-sm-6">
                                         <label for="cep">CEP:</label>
-                                        <input class="form-control @error('cep') is-invalid @enderror" id="cep" type="text" name="cep" value="{{ old('cep') }}" required autocomplete="cep"
+                                        <input class="form-control @error('cep') is-invalid @enderror cep" id="cep" type="text" name="cep" value="{{ old('cep') }}" required autocomplete="cep"
                                                autofocus>
                                         @error('cep')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
 
@@ -197,9 +205,9 @@
                                                autocomplete="bairro"
                                                autofocus>
                                         @error('bairro')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -210,9 +218,9 @@
                                         <input class="form-control @error('rua') is-invalid @enderror" id="rua" type="text" name="rua" value="{{ old('rua') }}" required autocomplete="rua"
                                                autofocus>
                                         @error('rua')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
 
@@ -222,9 +230,9 @@
                                                autocomplete="numero"
                                                autofocus>
                                         @error('numero')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -263,20 +271,20 @@
                                             <input class="form-control @error('nome') is-invalid @enderror" id="nome" type="text" name="nome" value="{{ $ocs->nome }}" required autocomplete="nome"
                                                    autofocus>
                                             @error('nome')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
 
                                         <div class="col-sm-6">
                                             <label for="cnpj">CNPJ:</label>
-                                            <input class="form-control @error('cnpj') is-invalid @enderror" id="cnpj" name="cnpj" value="{{ $ocs->cnpj }}" required autocomplete="cnpj"
+                                            <input class="form-control @error('cnpj') is-invalid @enderror cnpj" id="cnpj" name="cnpj" value="{{ $ocs->cnpj }}" required autocomplete="cnpj"
                                                    autofocus>
                                             @error('cnpj')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
                                     </div>
@@ -287,9 +295,9 @@
                                             <input class="form-control @error('representante') is-invalid @enderror" id="representante" type="text" name="representante" value="{{ $ocs->representante }}" required autocomplete="representante"
                                                    autofocus>
                                             @error('representante')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
 
@@ -298,9 +306,9 @@
                                             <input type="date" class="form-control @error('data_fundacao') is-invalid @enderror" id="data_fundacao" name="data_fundacao" value="{{ $ocs->data_fundacao }}" required autocomplete="data_fundacao"
                                                    autofocus>
                                             @error('data_fundacao')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
                                     </div>
@@ -314,20 +322,20 @@
                                             <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ $ocs->contato->email }}" required autocomplete="email"
                                                    autofocus>
                                             @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
 
                                         <div class="col-sm-6">
                                             <label for="telefone">Telefone:</label>
-                                            <input class="form-control @error('telefone') is-invalid @enderror" id="telefone" name="telefone" value="{{ $ocs->contato->telefone }}" required autocomplete="telefone"
+                                            <input class="form-control @error('telefone') is-invalid @enderror telefone" id="telefone" name="telefone" value="{{ $ocs->contato->telefone }}" required autocomplete="telefone"
                                                    autofocus>
                                             @error('telefone')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
                                     </div>
@@ -340,9 +348,9 @@
                                             <input class="form-control @error('pais') is-invalid @enderror" id="pais" type="text" name="pais" value="{{ $ocs->endereco->pais }}" required autocomplete="pais"
                                                    autofocus>
                                             @error('pais')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
 
@@ -352,9 +360,9 @@
                                                    autocomplete="uf"
                                                    autofocus>
                                             @error('uf')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
 
@@ -364,9 +372,9 @@
                                                    autocomplete="cidade"
                                                    autofocus>
                                             @error('cidade')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
                                     </div>
@@ -374,12 +382,12 @@
                                     <div class="row justify-content-center mt-2">
                                         <div class="col-sm-6">
                                             <label for="cep">CEP:</label>
-                                            <input class="form-control @error('cep') is-invalid @enderror" id="cep" type="text" name="cep" value="{{ $ocs->endereco->cep }}" required autocomplete="cep"
+                                            <input class="form-control @error('cep') is-invalid @enderror cep" id="cep" type="text" name="cep" value="{{ $ocs->endereco->cep }}" required autocomplete="cep"
                                                    autofocus>
                                             @error('cep')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
 
@@ -389,9 +397,9 @@
                                                    autocomplete="bairro"
                                                    autofocus>
                                             @error('bairro')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
                                     </div>
@@ -402,9 +410,9 @@
                                             <input class="form-control @error('rua') is-invalid @enderror" id="rua" type="text" name="rua" value="{{ $ocs->endereco->rua }}" required autocomplete="rua"
                                                    autofocus>
                                             @error('rua')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
 
@@ -414,9 +422,9 @@
                                                    autocomplete="numero"
                                                    autofocus>
                                             @error('numero')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                             @enderror
                                         </div>
                                     </div>
@@ -434,6 +442,29 @@
         </div>
         <div class="col-md-2"></div>
     </div>
+
+    <script>
+        $(document).ready(function($) {
+            $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+            $('.cpf').mask('000.000.000-00');
+            $('.cep').mask('00000-000');
+            let SPMaskBehavior = function(val) {
+                    return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+                },
+                spOptions = {
+                    onKeyPress: function(val, e, field, options) {
+                        field.mask(SPMaskBehavior.apply({}, arguments), options);
+                    }
+                };
+            $('.telefone').mask(SPMaskBehavior, spOptions);
+            $(".name").mask("#", {
+                maxlength: true,
+                translation: {
+                    '#': { pattern: /^[A-Za-záâãéêíóôõúçÁÂÃÉÊÍÓÔÕÚÇ\s]+$/, recursive: true }
+                }
+            });
+        });
+    </script>
 
     <script>
         $('.table').DataTable({

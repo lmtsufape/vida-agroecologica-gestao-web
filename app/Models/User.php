@@ -23,6 +23,8 @@ class User extends Authenticatable
         'password',
         'cpf',
         'tipo_usuario_id',
+        "endereco_id",
+        "contato_id"
     ];
 
     /**

@@ -9,6 +9,13 @@ class Associacao extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'nome',
+        'codigo',
+        'contato_id',
+        'user_id'
+    ];
+
     public function organizacaoControleSocials(){
         return $this->hasMany('App\Models\OrganizacaoControleSocial');
     }
